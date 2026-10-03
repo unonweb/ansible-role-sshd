@@ -1,7 +1,6 @@
 ---
 - name: sshd role
-  tags:
-    - sshd
+  tags: [role-sshd]
   block:
 
   # sshd_config
