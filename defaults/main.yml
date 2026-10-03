@@ -1,4 +1,4 @@
 ---
-sshd_config:
+sshd_config_overrides:
 sshd_handler_restart: false
 sshd_handler_reload: true
