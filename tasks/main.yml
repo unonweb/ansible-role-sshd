@@ -10,7 +10,6 @@
     - sshd_config_overrides is string
     - sshd_config_overrides | trim | length > 0
     become: true
-    notify: Reload ssh.service
     ansible.builtin.copy:
       content: |
         # Managed by Ansible - Do Not Edit Manually
