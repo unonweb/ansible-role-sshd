@@ -3,7 +3,7 @@
   block:
 
   # sshd_config_overrides
-  - name: Copy sshd config overrides
+  - name: Create config override {{ sshd_config_overrides_name }}
     when: 
     - sshd_config_overrides is string
     - sshd_config_overrides | trim | length > 0
@@ -13,7 +13,7 @@
         # Managed by Ansible - Do Not Edit Manually
 
         {{ sshd_config_overrides }}
-      dest: /etc/ssh/sshd_config.d/99-ansible-overrides.conf
+      dest: "/etc/ssh/sshd_config.d/{{ sshd_config_overrides_name }}"
       owner: root
       group: root
       mode: "0600"
