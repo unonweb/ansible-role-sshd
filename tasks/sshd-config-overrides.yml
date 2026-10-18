@@ -2,6 +2,24 @@
 - tags: [role-sshd-config-overrides]
   block:
 
+  # reset overrides
+  - name: Reset config overrides at /etc/ssh/sshd_config.d
+    when: sshd_config_overrides_reset == true
+    become: true
+    ansible.builtin.file:
+      path: /etc/ssh/sshd_config.d
+      state: absent
+
+  # mkdir overrides
+  - name: Mkdir /etc/ssh/sshd_config.d
+    become: true
+    ansible.builtin.file:
+      path: /etc/ssh/sshd_config.d
+      state: directory
+      owner: root
+      group: root
+      mode: u=rwx,g=,o=
+
   # sshd_config_overrides
   - name: Create config override {{ sshd_config_overrides_name }}
     when: 

@@ -1,3 +1,4 @@
 ---
+sshd_config_overrides_reset: false
 sshd_config_overrides: ""
 sshd_config_overrides_name: 99-ansible-overrides.conf
